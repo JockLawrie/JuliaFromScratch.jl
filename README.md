@@ -1,6 +1,6 @@
 # My First Project
 
-This project is aimed at getting started with Julia without any previous experience.
+Get started with Julia without any previous experience.
 
 ## Install Julia
 
