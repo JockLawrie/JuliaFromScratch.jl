@@ -13,10 +13,10 @@
 # Import required functions
 using Pkg
 Pkg.activate(".")
-using MyTestPackage  # Make the nextday function available
-using Dates          # Make date-related functions available, including today().
+using MyFirstProject  # Make the nextday function available
+using Dates           # Make date-related functions available, including today().
 
 # Use the functions
-nextday(today())
-nextday(Date(2021, 3, 15))
-nextday(Date("2021-03-15"))
+println(nextday(today()))
+println(nextday(Date(2021, 3, 15)))
+println(nextday(Date("2021-03-15")))

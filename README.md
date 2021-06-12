@@ -96,19 +96,14 @@ Pkg.activate(".")
 using MyTestPackage
 ```
 
-Note the warning. It arises because the code contains `using Dates`, but the `Dates` package hasn't yet been made available to our package.
-To enable this we have to add `Dates` to our package's list of dependencies, as follows:
+Note the warning. It arises because the package code contains `using Dates`, but the `Dates` package hasn't yet been made available to our package.
+To do this we have to add `Dates` to our package's list of dependencies by typing `Pkg.add("Dates")`.
 
-```julia
-Pkg.add("Dates")
-```
-
-The first time you do this will take a minute or 2 because Julia fetches the list of packages available in its `General` package registry.
-Adding further packages won't take so long.
+The first time you do this will take a minute or 2 because Julia fetches the list of packages that are publicly available
+(known as the `General` package registry). Adding further packages won't take so long.
 
 Note that `Project.toml` now lists `Dates` as a dependency of our package.
 You can see this at the REPL by typing `Pkg.status()`.
-
 
 Also note the newly created `MyTestPackage\Manifest.toml` file, which is automatically generated and updated, you needn’t ever edit this file.
 It lists the dependencies, and dependencies of dependencies. That is, it lists every package needed to use `MyTestPackage`.
@@ -137,7 +132,7 @@ Once the REPL is closed the code above is lost.
 A good way to save it for reuse is to store it in a file.
 Since this file only uses functions from our package and doesn't define functions,
 we store it separately from our library of functions (our package).
-We store it as a script in the `scripts` directory - see `my_first_scripts.jl`.
+We store it as a script in the `scripts` directory - see `my_first_scripts.jl`, which includes instructions for running the script.
 
 ## Further learning
 
