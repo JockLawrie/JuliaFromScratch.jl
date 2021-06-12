@@ -1,4 +1,4 @@
-module JuliaFromScratch
+module MyFirstProject
 
 export nextday  # Make nextday available outside this package
 

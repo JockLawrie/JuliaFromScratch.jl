@@ -1,4 +1,4 @@
-# Julia From Scratch
+# My First Project
 
 This project is aimed at getting started with Julia without any previous experience.
 
@@ -8,10 +8,6 @@ Install Julia. You can install without admin rights.
 Download the Windows 64-bit installer from [here](https://julialang.org/downloads/).
 When installing, check the box for adding Julia to the PATH variable. This means you can type `julia` into PowerShell and it will start.
 That is, you needn't hunt for the Julia executable on your machine.
-
-To get a flavour of the syntax, spend 10 minutes [here](https://learnxinyminutes.com/docs/julia/).
-This intro is for version 1.0.0. Although released in 2018, it is still valid code.
-More features have been added since, but the core features are here.
 
 ## Troubleshooting
 
@@ -28,7 +24,7 @@ Try these sources if you get stuck:
 
 ## Start a project for learning and experimentation.
 
-In Julia, a project is a package (also known as a _module_), which can be thought of as a library of functions.
+In Julia, a project is a package, which can be thought of as a library of functions.
 Some packages are built in, such as the _Dates_ package that provides functions such as computing the number of days between 2 dates.
 The set of built-in packages is called the _standard library_, or [stdlib](https://docs.julialang.org/en/v1/stdlib/Dates/) for short.
 
@@ -56,9 +52,13 @@ Open the `Project.toml` in any editor (e.g., Notepad) and note that this file co
 You needn't edit this file - more  information will be automatically added as you develop the package.
 Close `Project.toml`.
 
-Open `src\MyTestPackage.jl`. It contains a main module called `MyTestPackage`, and a simple print statement.
-Replace the contents of this file with the following code.
-Note that `src\JuliaFromScratch` contains the same code for reference.
+Open `src\MyTestPackage.jl`. It contains a module called `MyTestPackage`, which contains a simple print statement.
+A _module_ contains some combination of functions and more modules.
+It's Julia's way of constructing and organising libraries of functions.
+Julia _packages_ are modules that can be used by writing `using modulename`.
+
+Replace the contents of `src\MyTestPackage.jl` with the following code.
+Note that `src\MyFirstProject` contains the same code for reference.
 
 ```julia
 module MyTestPackage
@@ -130,3 +130,19 @@ nextday(today())
 nextday(Date(2021, 3, 15))
 nextday(Date("2021-03-15"))
 ```
+
+## Scripts
+
+Once the REPL is closed the code above is lost.
+A good way to save it for reuse is to store it in a file.
+Since this file only uses functions from our package and doesn't define functions,
+we store it separately from our library of functions (our package).
+We store it as a script in the `scripts` directory - see `my_first_scripts.jl`.
+
+## Further learning
+
+1. To get a flavour of the syntax, spend 10 minutes [here](https://learnxinyminutes.com/docs/julia/).
+   This intro is for version 1.0.0. Although released in 2018, it is still valid code.
+   More features have been added since, but the core features are here.
+
+2. Try some of the exercises from the [DataFrames.jl](https://dataframes.juliadata.org/stable/) documentation.
