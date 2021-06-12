@@ -14,10 +14,8 @@ This project is aimed at getting started with Julia without any previous experie
    Some packages are built in, such as the _Dates_ package that provides functions such as computing the number of days between 2 dates.
    The set of built-in packages is called the _standard library_, or [stdlib](https://docs.julialang.org/en/v1/stdlib/Dates/) for short.
 
-   To start your own project, first create a folder where you'll keep your code. For example, `C:\\Users\username\code`
-   
-   
-   Open the Julia REPL (the command line interface...Read-Evaluate-Print-Loop) and enter the following:
+To start your own project, first create a folder where you'll keep your code. For example, `C:\\Users\username\code`.
+Open the Julia REPL (the command line interface...Read-Evaluate-Print-Loop) and enter the following:
 
 ```julia
 cd("C:\\Users\\username\\code")  # Navigate to where you keep your code
@@ -57,7 +55,7 @@ end
 ```
 
 Our package now contains a function `nextday` which takes a `Date` as input and returns the date 1 day after the input date.
-Note that it uses the `Dates` package from the standard library (`using Dates`) and makes the `nextday` function available for use by other code (`nextday`).
+Note that it uses the `Dates` package from the standard library (`using Dates`) and makes the `nextday` function available for use by other code (`export nextday`).
 
 Now let's use the package. In Julia type the following:
 
@@ -77,7 +75,7 @@ Pkg.activate(".")
 using MyTestPackage
 ```
 
-Note the warning. It arises because the code contains `using Dates`, but the `Dates` hasn't yet been made available to our package.
+Note the warning. It arises because the code contains `using Dates`, but the `Dates` package hasn't yet been made available to our package.
 To enable this we have to add `Dates` to our package's list of dependencies, as follows:
 
 ```julia
@@ -91,8 +89,8 @@ Note that `Project.toml` now lists `Dates` as a dependency of our package.
 You can see this at the REPL by typing `Pkg.status()`.
 
 
-Also note the newly created `MyTestPackage\Manifest.toml` file, which automatically generated and updated, you needn’t ever edit this file.
-It lists the dependencies, and dependencies of dependencies; that is, every package needed to use `MyTestPackage`.
+Also note the newly created `MyTestPackage\Manifest.toml` file, which is automatically generated and updated, you needn’t ever edit this file.
+It lists the dependencies, and dependencies of dependencies. That is, it lists every package needed to use `MyTestPackage`.
 It also lists the version numbers of each dependency.
 This is helpful when copying an existing package to a new directory or a new machine – just
 type `Pkg.instantiate()` and Julia will use `Manifest.toml` to fetch all dependencies with the correct versions.
