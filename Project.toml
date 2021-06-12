@@ -2,3 +2,6 @@ name = "JuliaFromScratch"
 uuid = "313baada-bfd8-49d5-8686-76cf64b2beac"
 authors = ["Jock Lawrie <jock.lawrie@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"

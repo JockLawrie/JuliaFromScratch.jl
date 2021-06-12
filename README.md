@@ -1,6 +1,6 @@
 # Julia From Scratch
 
-This project is aimed at getting a team started with Julia without any previous experience.
+This project is aimed at getting started with Julia without any previous experience.
 
 1. Install Julia. You can install without admin rights.
    Download the Windows 64-bit installer from [here](https://julialang.org/downloads/).
@@ -17,7 +17,7 @@ This project is aimed at getting a team started with Julia without any previous 
    To start your own project, first create a folder where you'll keep your code. For example, `C:\\Users\username\code`
    
    
-   Open the Julia repl (command line interface...read-evaluate-print-loop) and enter the following:
+   Open the Julia REPL (the command line interface...Read-Evaluate-Print-Loop) and enter the following:
 
 ```julia
 cd("C:\\Users\\username\\code")  # Navigate to where you keep your code
@@ -38,7 +38,8 @@ You needn't edit this file - more  information will be automatically added as yo
 Close `Project.toml`.
 
 Open `src\MyTestPackage.jl`. It contains a main module called `MyTestPackage`, and a simple print statement.
-Replace the contents of this file with the following:
+Replace the contents of this file with the following code.
+Note that `src\JuliaFromScratch` contains the same code for reference.
 
 ```julia
 module MyTestPackage
@@ -50,6 +51,8 @@ using Dates     # Import the Dates package
 "Returns: The date following the input date"
 function nextday(dt::Date)
     dt + Day(1)
+end
+
 end
 ```
 
@@ -70,15 +73,41 @@ cd("MyTestPackage")  # Navigate to the package
 
 # Make the nextday function available
 using Pkg
-Pkg.activate(“.”)
+Pkg.activate(".")
 using MyTestPackage
+```
 
-# Make date-related functions available, including today().
-using Dates
+Note the warning. It arises because the code contains `using Dates`, but the `Dates` hasn't yet been made available to our package.
+To enable this we have to add `Dates` to our package's list of dependencies, as follows:
+
+```julia
+Pkg.add("Dates")
+```
+
+The first time you do this will take a minute or 2 because Julia is fetching the list of packages available in its `General` package registry.
+Adding further packages won't take so long.
+
+Note that `Project.toml` now lists `Dates` as a dependency of our package.
+You can see this at the REPL by typing `Pkg.status()`.
+
+
+Also note the newly created `MyTestPackage\Manifest.toml` file, which automatically generated and updated, you needn’t ever edit this file.
+It lists the dependencies, and dependencies of dependencies; that is, every package needed to use `MyTestPackage`.
+It also lists the version numbers of each dependency.
+This is helpful when copying an existing package to a new directory or a new machine – just
+type `Pkg.instantiate()` and Julia will use `Manifest.toml` to fetch all dependencies with the correct versions.
+
+Now we can use the package. Try this:
+
+```julia
+using MyTestPackage  # Make the nextday function available
+?nextday             # The docstring is displayed (which we wrote above the function defintion).
+?today               # No help available because the function isn't yet available to our REPL
+using Dates          # Make date-related functions available, including today().
+?today               # Now the REPL can see the today function
 
 # Use the functions
 nextday(today())
 nextday(Date(2021, 3, 15))
 nextday(Date("2021-03-15"))
 ```
-
