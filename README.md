@@ -22,7 +22,7 @@ Try these sources if you get stuck:
 
 4. A coder’s most trusty troubleshooting method, Google, and StackOverflow in particular.
 
-## Start a project for learning and experimentation.
+## Start a project for learning and experimentation
 
 In Julia, a project is a package, which can be thought of as a library of functions.
 Some packages are built in, such as the _Dates_ package that provides functions such as computing the number of days between 2 dates.
@@ -41,14 +41,14 @@ Pkg.generate(“MyTestPackage”)    # Generate a new package
 ```
 
 In your file explorer, look at the files now present at `C:\\Users\username\code\MyTestPackage`.
-You will see some newly created files with the following structure, which is the minimum requirement for Julia packages:
+You will see some newly created files with the following structure, which is the minimum requirement for Julia a package:
 
 ```bash
 Project.toml
 src\MyTestPackage.jl
 ```
 
-Open the `Project.toml` in any editor (e.g., Notepad) and note that this file contains information about the package.
+Open the `Project.toml` in any editor and note that this file contains information about the package.
 You needn't edit this file - more  information will be automatically added as you develop the package.
 Close `Project.toml`.
 
@@ -103,7 +103,7 @@ To enable this we have to add `Dates` to our package's list of dependencies, as 
 Pkg.add("Dates")
 ```
 
-The first time you do this will take a minute or 2 because Julia is fetching the list of packages available in its `General` package registry.
+The first time you do this will take a minute or 2 because Julia fetches the list of packages available in its `General` package registry.
 Adding further packages won't take so long.
 
 Note that `Project.toml` now lists `Dates` as a dependency of our package.
@@ -145,4 +145,4 @@ We store it as a script in the `scripts` directory - see `my_first_scripts.jl`.
    This intro is for version 1.0.0. Although released in 2018, it is still valid code.
    More features have been added since, but the core features are here.
 
-2. Try some of the exercises from the [DataFrames.jl](https://dataframes.juliadata.org/stable/) documentation.
+2. Get started with data manipulation by trying some of the exercises from the [DataFrames.jl](https://dataframes.juliadata.org/stable/) documentation.
