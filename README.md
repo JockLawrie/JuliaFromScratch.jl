@@ -2,17 +2,38 @@
 
 This project is aimed at getting started with Julia without any previous experience.
 
-1. Install Julia. You can install without admin rights.
-   Download the Windows 64-bit installer from [here](https://julialang.org/downloads/).
-   When installing, check the box for adding Julia to the PATH variable. This means you can type `julia` into PowerShell and it will start.
-   That is, you needn't hunt for the Julia executable on your machine.
+## Install Julia
 
-2. To get a flavour of the syntax, spend 10 minutes [here](https://learnxinyminutes.com/docs/julia/). This intro is for version 1.0.0. Although released in 2018, it is still valid code. More features have been added since, but the core features are here.
+Install Julia. You can install without admin rights.
+Download the Windows 64-bit installer from [here](https://julialang.org/downloads/).
+When installing, check the box for adding Julia to the PATH variable. This means you can type `julia` into PowerShell and it will start.
+That is, you needn't hunt for the Julia executable on your machine.
 
-3. Start a project for learning and experimentation.
-   In Julia, a project is a package (also known as a _module_), which can be thought of as a library of functions.
-   Some packages are built in, such as the _Dates_ package that provides functions such as computing the number of days between 2 dates.
-   The set of built-in packages is called the _standard library_, or [stdlib](https://docs.julialang.org/en/v1/stdlib/Dates/) for short.
+To get a flavour of the syntax, spend 10 minutes [here](https://learnxinyminutes.com/docs/julia/).
+This intro is for version 1.0.0. Although released in 2018, it is still valid code.
+More features have been added since, but the core features are here.
+
+## Troubleshooting
+
+Try these sources if you get stuck:
+
+1. Help within Julia. Type the question mark then the function you are looking for. For example: `?maximum`
+
+2. The [Julia manual](https://docs.julialang.org/en/v1/).
+
+3. [Julia’s Discourse](https://discourse.julialang.org/latest) page, which is a source of news, knowledge and help.
+   Search to see if your question has been asked before, or post your own.
+
+4. A coder’s most trusty troubleshooting method, Google, and StackOverflow in particular.
+
+## Start a project for learning and experimentation.
+
+In Julia, a project is a package (also known as a _module_), which can be thought of as a library of functions.
+Some packages are built in, such as the _Dates_ package that provides functions such as computing the number of days between 2 dates.
+The set of built-in packages is called the _standard library_, or [stdlib](https://docs.julialang.org/en/v1/stdlib/Dates/) for short.
+
+There are thousands of packages available outside the standard library, created by users around the world.
+You can search these via Google or [JuliaHub](https://juliahub.com/lp/).
 
 To start your own project, first create a folder where you'll keep your code. For example, `C:\\Users\username\code`.
 Open the Julia REPL (the command line interface...Read-Evaluate-Print-Loop) and enter the following:
