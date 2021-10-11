@@ -4,7 +4,7 @@ Get started with Julia without any previous experience.
 
 Read the docs [here](docs/src/index.md)
 
-We focus on manipulating tabular data that includes dates.
+The examples focus on manipulating tabular data that includes dates.
 
 
 
@@ -119,11 +119,3 @@ A good way to save it for reuse is to store it in a file.
 Since this file only uses functions from our package and doesn't define functions,
 we store it separately from our library of functions (our package).
 We store it as a script in the `scripts` directory - see `my_first_scripts.jl`, which includes instructions for running the script.
-
-## Further learning
-
-1. To get a flavour of the syntax, spend 10 minutes [here](https://learnxinyminutes.com/docs/julia/).
-   This intro is for version 1.0.0. Although released in 2018, it is still valid code.
-   More features have been added since, but the core features are here.
-
-2. Get started with data manipulation by trying some of the exercises from the [DataFrames.jl](https://dataframes.juliadata.org/stable/) documentation.
