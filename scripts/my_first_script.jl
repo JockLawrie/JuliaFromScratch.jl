@@ -1,9 +1,9 @@
 #=
   To run this script:
   1. Open PowerShell
-  2. Navigate to the project directory by typing:
+  2. Navigate to the project directory by typing (modify the path as required):
 
-       cd C:\\Users\username\code\MyTestPackage
+       cd C:\\Users\username\code\MyFirstProject
 
   3. Run the script:
 
@@ -13,10 +13,39 @@
 # Import required functions
 using Pkg
 Pkg.activate(".")
-using MyFirstProject  # Make the nextday function available
-using Dates           # Make date-related functions available, including today().
+Pkg.instantiate()  # Fetch any dependencies that you don't already have (once-off, may take a few minutes)
 
-# Use the functions
-println(nextday(today()))
-println(nextday(Date(2021, 3, 15)))
-println(nextday(Date("2021-03-15")))
+using CSV
+using DataFrames
+using RDatasets
+using Statistics
+
+# Data
+data    = dataset("datasets", "iris")
+outfile = tempname()
+CSV.write(outfile, data)
+data = CSV.read(outfile, DataFrame)
+
+# Basic statistics
+size(data)
+names(data)
+first(data, 5)
+last(data, 5)
+describe(data)
+
+# View/subset where Species is "setosa"
+unique(data.Species)
+v = view(data, data.Species .== "setosa", :)
+v[1:5, :]
+describe(v)
+
+# Basic statistics grouped by Species
+bySpecies = groupby(data, :Species)  # Splits data into 3 views
+bySpecies[1]
+bySpecies[2]
+bySpecies[3]
+smry = combine(bySpecies, nrow, :SepalLength => mean, :SepalWidth => mean, :PetalLength => mean, :PetalWidth => mean)
+
+# Sorting
+sort!(data, "Species")  # Sort by 1 column
+sort!(data, ["Species", "SepalLength"])  # Sort by multiple columns
