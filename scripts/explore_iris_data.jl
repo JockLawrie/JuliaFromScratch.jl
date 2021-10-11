@@ -7,7 +7,7 @@
 
   3. Run the script:
 
-       julia scripts\my_first_script.jl
+       julia scripts\explore_iris_data.jl
 =#
 
 # Import required functions
