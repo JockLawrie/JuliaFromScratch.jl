@@ -6,4 +6,8 @@
 
 2. Get started with data manipulation by trying some of the exercises from the [DataFrames.jl](https://dataframes.juliadata.org/stable/) documentation.
 
-3. Search Julia's package ecosystem at [JuliaHub](https://juliahub.com).
+3. Search Julia's package ecosystem at [JuliaHub](https://juliahub.com/ui/Home).
+
+4. If you need to pull data from a database, check out the [ODBC](https://odbc.juliadatabases.org/stable/) package. There are also packages that are tailored to [specific databases](https://juliadatabases.org/).
+
+5. To document a project, use the [Documenter](https://juliadocs.github.io/Documenter.jl/stable/) package.

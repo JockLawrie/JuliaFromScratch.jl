@@ -2,7 +2,7 @@
 
 Get started with Julia without any previous experience.
 
-Read the docs [here](docs/src/index.md)
+Read the docs [here](docs/src/index.md).
 
 The examples focus on manipulating tabular data that includes dates.
 
@@ -10,38 +10,12 @@ The examples focus on manipulating tabular data that includes dates.
 
 ## Start a project for learning and experimentation
 
-In Julia, a project is a package, which can be thought of as a library of functions.
-Some packages are built in, such as the _Dates_ package that provides functions such as computing the number of days between 2 dates.
-The set of built-in packages is called the _standard library_, or [stdlib](https://docs.julialang.org/en/v1/stdlib/Dates/) for short.
-
-There are thousands of packages available outside the standard library, created by users around the world.
-You can search these via Google or [JuliaHub](https://juliahub.com/lp/).
-
-To start your own project, first create a folder where you'll keep your code. For example, `C:\\Users\username\code`.
-Open the Julia REPL (the command line interface...Read-Evaluate-Print-Loop) and enter the following:
-
-```julia
-cd("C:\\Users\\username\\code")  # Navigate to where you keep your code
-using Pkg                        # Make Julia’s package management functions available
-Pkg.generate(“MyTestPackage”)    # Generate a new package
-```
-
-In your file explorer, look at the files now present at `C:\\Users\username\code\MyTestPackage`.
-You will see some newly created files with the following structure, which is the minimum requirement for Julia a package:
-
-```bash
-Project.toml
-src\MyTestPackage.jl
-```
-
-Open the `Project.toml` in any editor and note that this file contains information about the package.
-You needn't edit this file - more  information will be automatically added as you develop the package.
-Close `Project.toml`.
-
 Open `src\MyTestPackage.jl`. It contains a module called `MyTestPackage`, which contains a simple print statement.
 A _module_ contains some combination of functions and more modules.
 It's Julia's way of constructing and organising libraries of functions.
 Julia _packages_ are modules that can be used by writing `using modulename`.
+
+
 
 Replace the contents of `src\MyTestPackage.jl` with the following code.
 Note that `src\MyFirstProject` contains the same code for reference.
