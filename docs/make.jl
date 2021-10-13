@@ -21,4 +21,4 @@ pages = Any[
 
 makedocs(sitename="MyFirstProject.jl", pages=pages, format=fmt)
 
-GitHubPages && deploydocs(repo = "github.com/JockLawrie/MyFirstProject.jl.git")
+GitHubPages && deploydocs(repo = "github.com/JockLawrie/MyFirstProject.jl.git", devbranch = "main")
