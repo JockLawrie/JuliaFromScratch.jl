@@ -1,7 +1,8 @@
 # My First Project
 
-Get started with Julia without any previous experience.
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://JockLawrie.github.io/MyFirstProject.jl/stable)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://JockLawrie.github.io/MyFirstProject.jl/dev)
 
-Read the docs [here](docs/src/index.md).
+Get started with Julia without any previous experience.
 
 The examples focus on manipulating tabular data that includes dates.

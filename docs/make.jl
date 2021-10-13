@@ -20,3 +20,5 @@ pages = Any[
 ]
 
 makedocs(sitename="MyFirstProject.jl", pages=pages, format=fmt)
+
+deploydocs(repo = "github.com/JockLawrie/MyFirstProject.jl.git")
