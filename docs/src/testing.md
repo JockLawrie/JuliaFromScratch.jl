@@ -1,9 +1,9 @@
 # Test your code
 
-A _unit test_ is a comparison of a computation's output to a required result.
+A __unit test__ is a comparison of a computation's output to a required result.
 For example, if we have a function `add(x, y)` that adds 2 numbers, then we require that `add(2, 3)` returns 5.
 
-A _test suite_ is a set of unit tests that we use to check whether our code still functions as required.
+A __test suite__ is a set of unit tests that we use to check whether our code still functions as required.
 As our code base becomes larger and more complex, the risk of inadvertently changing the behaviour of existing functions rises.
 A test suite that covers asll or most of our code gives us some reassurance that the code still behaves as required.
 

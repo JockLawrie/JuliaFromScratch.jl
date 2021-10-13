@@ -10,29 +10,25 @@
        julia scripts\working_with_dates.jl
 =#
 
-# Import required functions
-using Pkg
-Pkg.activate(".")
-Pkg.instantiate()  # Fetch any dependencies that you don't already have (once-off, may take a few minutes)
-using MyFirstProject
+# Get started
+using Pkg          # Import the Pkg package, which is in Julia's standard library.
+Pkg.activate(".")  # Set the current directory as the active directory.
+Pkg.instantiate()  # Fetch any dependencies that you don't already have (Julia uses Manifest.toml to do this)
 
-using DataFrames
-using Dates
-using MyFirstProject
-using Statistics
-
-# https://docs.julialang.org/en/v1/stdlib/Dates/
+# Import required packages
+using DataFrames  # For manipulating tabular data in memory.
+using Dates       # A standard library package for manipulating dates.
+using MyFirstProject  # Import the functions defined in the src directory.
+using Statistics  # For computing basic descriptive statistics such as means and variances.
 
 # Create data
-npeople    = 100
-dob_range  = Date(1900, 1, 1):Day(1):Date(1920, 12, 31)
-birthdates = rand(dob_range, npeople)
-age_range  = -5:1:95
-ages       = rand(age_range, npeople)
-eventdates = birthdates .+ Year.(ages)
-data       = DataFrame(birthdate=birthdates, eventdate=event_dates)
-
-# Use functions defined in this package
+npeople    = 100  # Number of people in our fake data
+dob_range  = Date(1900, 1, 1):Day(1):Date(1920, 12, 31)  # All dates from 1/1/1900 to 31/12/1920 inclusive
+birthdates = rand(dob_range, npeople)   # 100 random dates drawn from dob_range
+age_range  = -5:1:95                    # All ages (in whole years) from -5 to 95 years
+ages       = rand(age_range, npeople)   # 100 random ages drawn from age_range
+eventdates = birthdates .+ Year.(ages)  # For each person, the date of some event occurs at the age given by the ages column
+data       = DataFrame(birthdate=birthdates, eventdate=event_dates)  # Collect columns into a DataFrame
 
 # Calculate each person's age in years
 data[!, "age_in_years"] = calculate_age_in_years.(data.birthdate, data.eventdate)

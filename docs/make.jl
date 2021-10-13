@@ -14,7 +14,7 @@ pages = Any[
     "Getting started"  => "index.md",
     "Create a project" => "projects.md",
     "Write a script"   => "writing_scripts.md",
-    "Write a function" => "writing_functions.md",
+    "Write some functions" => "writing_functions.md",
     "Test your code"   => "testing.md",
     "Further learning" => "further_learning.md"
 ]
