@@ -1,15 +1,15 @@
-# From the docs directory: julia --color=yes make.jl
+# From the project directory: julia --color=yes docs/make.jl false
+const GitHubPages = ARGS[1] == "true"  # true if the docs are to be deployed to GitHub Pages
 using Pkg
-Pkg.activate(".")
+Pkg.activate("./docs")  # pwd() is still the project directory
 using Documenter
-
-push!(LOAD_PATH,"../src/")
+push!(LOAD_PATH,"src")
 using MyFirstProject
 
-# Set to true for GitHub pages
-fmt = Documenter.HTML(prettyurls = false)
+# Set to true for GitHub pages, false for local development.
+fmt = Documenter.HTML(prettyurls = GitHubPages)
 
-# sidebar
+# Sidebar
 pages = Any[
     "Getting started"  => "index.md",
     "Create a project" => "projects.md",
@@ -21,4 +21,4 @@ pages = Any[
 
 makedocs(sitename="MyFirstProject.jl", pages=pages, format=fmt)
 
-deploydocs(repo = "github.com/JockLawrie/MyFirstProject.jl.git")
+GitHubPages && deploydocs(repo = "github.com/JockLawrie/MyFirstProject.jl.git")
