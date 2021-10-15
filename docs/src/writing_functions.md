@@ -4,7 +4,7 @@ In this example we define our own functionality and work with data that includes
 
 ## Add a package programatically
 
-First let's add the `Dates` package to the project, so that we can use the functinality that is provides. See the [Dates](https://docs.julialang.org/en/v1/stdlib/Dates/) package in Julia's standard library for details of the available functionality. Open Julia and type the following:
+First let's add the `Dates` package to the project, so that we can use the functinality that it provides. See the [Dates](https://docs.julialang.org/en/v1/stdlib/Dates/) package in Julia's standard library for details of the available functionality. Open Julia and type the following:
 
 ```julia
 cd("C:\\Users\\username\\code\\MyFirstProject")  # Navigate to the project directory (alter as required).
@@ -55,7 +55,7 @@ Open Julia and run these lines one by one. Note that the last line fails, and re
 
 ## Your first function
 
-__We aim for our project structure to have functions defined in files contained in the `src` directory, and code that uses these functions to be contained in the `scripts` directory.__
+__We aim for our project structure to have functions contained in the `src` directory, and code that uses these functions contained in the `scripts` directory.__
 
 To define the `calculate_age_in_years` function, open the `MyFirstProject.jl` in the `src` directory, and replace the contents with this:
 
@@ -138,3 +138,20 @@ calculate_age_group(9999, 5, 85)
 ```
 
 Run the script and observe the results.
+
+## Missing data
+
+Julia has a `Missing` data type that has a single value, namely `missing`.
+This contrasts to `Int64` (64-bit integers) for example, which have many values such as 1, 2, 3, etc.
+Missing values are represented using `missing`, and most built-in functions that involve numbers have a method for handling `missing`. For example, `1 + missing` is `missing`.
+
+In a `DataFrame` the data is contained in columns, with each column having an element type.
+For example, the `birthdate` column in the previous example has element type `Date`,
+The column itself has type `Vector{Date}`, which means that the column is a vector of dates.
+Type `eltype(data.birthdate)` into Julia for the former, and `typeof(data.birthdate)` for the latter.
+
+If a cell can have a missing value, then the element type needs to be changed to allow for this.
+The standard way to achieve this in Julia is to use union types, which allows a value to have any 1 type of a pre-specified set of types.
+For example, if we encounter data with a missing birth date, then the element type of the `birthdates` column would have to change from `Date` to `Union{Date, Missing}`. Values in the column can now be either a date or `missing`. Moreover, a value can be changed from a date to `missing` and vice versa.
+
+In this case `eltype(data.birthdate)` would be `Union{Date, Missing}`, since we are referring to the types of all _potential_ elements in the column. Yet the type of the first element of the column, `typeof(data.birthdate)[1]`, would be either `Date` or `Missing` (the data type of `missing`), since here we are looking at a realised value.
