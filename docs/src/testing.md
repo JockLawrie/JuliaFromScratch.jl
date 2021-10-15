@@ -16,7 +16,6 @@ Here we construct a simple test suite:
 3. Type `add Test`. This step creates the `Project.toml` and `Manifest.toml` files specifically for the test environment. That is, the test suite can have dependencies that the package does not have. In this case we have made the `Test` package a dependency of the test environment, even though `MyFirstProject` itself does not require `Test` to function. The `Test` package is in Julia's standard library.
 4. Put the following code in the `runtests.jl` file and save it.
 
-        ```julia
         using Test
         using MyFirstProject
 
@@ -27,7 +26,6 @@ Here we construct a simple test suite:
             @test calculate_age_group(12, 5, 85)   == "10 to 14"
             @test calculate_age_group(9999, 5, 85) == "85+"
         end
-        ```
 
 5. In the REPL, type `activate .`, which sets the project directory as the active directory.
 6. Type `test`. The test suite should run and give an output something like this:
