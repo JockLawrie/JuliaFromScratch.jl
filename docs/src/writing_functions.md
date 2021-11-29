@@ -155,3 +155,5 @@ The standard way to achieve this in Julia is to use union types, which allows a 
 For example, if we encounter data with a missing birth date, then the element type of the `birthdate` column would have to change from `Date` to `Union{Date, Missing}`. Values in the column can now be either a date or `missing`. Moreover, a value can be changed from a date to `missing` and vice versa.
 
 In this case `eltype(data.birthdate)` would be `Union{Date, Missing}`, since we are referring to the types of all _potential_ elements in the column. Yet the type of the first element of the column, `typeof(data.birthdate)[1]`, would be either `Date` or `Missing` (the data type of `missing`), since here we are looking at a realised value.
+
+For examples and further details on handling missing data, see the [Missing Data](https://dataframes.juliadata.org/stable/man/missing/) section of the `DataFrames.jl` documentation.
