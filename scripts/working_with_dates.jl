@@ -28,7 +28,7 @@ birthdates = rand(dob_range, npeople)   # 100 random dates drawn from dob_range
 age_range  = -5:1:95                    # All ages (in whole years) from -5 to 95 years
 ages       = rand(age_range, npeople)   # 100 random ages drawn from age_range
 eventdates = birthdates .+ Year.(ages)  # For each person, the date of some event occurs at the age given by the ages column
-data       = DataFrame(birthdate=birthdates, eventdate=event_dates)  # Collect columns into a DataFrame
+data       = DataFrame(birthdate=birthdates, eventdate=eventdates)  # Collect columns into a DataFrame
 
 # Calculate each person's age in years
 data[!, "age_in_years"] = calculate_age_in_years.(data.birthdate, data.eventdate)
